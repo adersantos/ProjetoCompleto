@@ -3,7 +3,7 @@ using System;
 
 namespace AS.ProjetoCompleto.Dominio.Interfaces
 {
-    interface IRepositoryWrite<TEntity> : IDisposable where TEntity : Entity
+    public interface IRepositoryWrite<TEntity> : IDisposable where TEntity : Entity
     {
         TEntity Adicionar(TEntity obj);
 
