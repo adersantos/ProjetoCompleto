@@ -51,7 +51,7 @@ namespace AS.ProjetoCompleto.Application.Services
             var cliente = Mapper.Map<Cliente>(clienteEnderecoViewModel.Cliente);
             var endereco = Mapper.Map<Endereco>(clienteEnderecoViewModel.Endereco);
 
-            //cliente sempre entre ativo
+            //cliente sempre entra ativo
             cliente.Ativar();
             cliente.AdicionarEndereco(endereco);
 

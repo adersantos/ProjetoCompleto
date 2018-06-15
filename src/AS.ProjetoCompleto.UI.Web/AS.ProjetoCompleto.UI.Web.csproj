@@ -197,11 +197,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ClaimsHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -270,6 +272,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Clientes\CreateView.cshtml" />
+    <Content Include="Views\Clientes\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -286,6 +289,10 @@
     <ProjectReference Include="..\AS.ProjetoCompleto.Application\AS.ProjetoCompleto.Application.csproj">
       <Project>{370f5db4-7642-420e-a913-025eb476b387}</Project>
       <Name>AS.ProjetoCompleto.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AS.ProjetoCompleto.Infra.CrossCutting.AspNetFilters\AS.ProjetoCompleto.Infra.CrossCutting.AspNetFilters.csproj">
+      <Project>{044c7785-0dcf-4574-b9ee-778e3c31f2e7}</Project>
+      <Name>AS.ProjetoCompleto.Infra.CrossCutting.AspNetFilters</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

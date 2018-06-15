@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace AS.ProjetoCompleto.UI.Web.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-    : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.AutoDetectChangesEnabled = false;
         }
 
         public static ApplicationDbContext Create()

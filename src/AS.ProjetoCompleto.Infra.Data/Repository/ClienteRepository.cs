@@ -1,5 +1,6 @@
 ﻿using AS.ProjetoCompleto.Dominio.Interfaces;
 using AS.ProjetoCompleto.Dominio.Models;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,28 @@ namespace AS.ProjetoCompleto.Infra.Data.Repository
         //o método Buscar está implementado lá na classe Repository
         //que está sendo herdada
 
+        public override Cliente ObterPorId(Guid id)
+        {
+            var sql = @"SELECT * FROM Clientes c " +
+                      "LEFT JOIN Enderecos e " +
+                      "ON c.Id = e.ClienteId " +
+                      "WHERE c.Id = @uid AND c.Excluido = 0 AND c.Ativo = 1";
+
+            return Db.Database.Connection.Query<Cliente, Endereco, Cliente>(sql,
+                (c, e) => {
+                    c.Enderecos.Add(e);
+                    return c;
+                }, new { uid = id}).FirstOrDefault();
+
+        }
         public IEnumerable<Cliente> ObterAtivos()
         {
-            return Buscar(c => c.Ativo && !c.Excluido);
+            var sql = @"SELECT * FROM Clientes C " +
+                    " WHERE C.EXCLUIDO =0 AND C.ATIVO=1";
+
+            //return Buscar(c => c.Ativo && !c.Excluido);
+
+            return Db.Database.Connection.Query<Cliente>(sql);
         }
 
         public Cliente ObterClienteUnico(Cliente cliente)
