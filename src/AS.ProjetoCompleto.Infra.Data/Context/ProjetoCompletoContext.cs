@@ -7,7 +7,7 @@ namespace AS.ProjetoCompleto.Infra.Data.Context
 {
     public class ProjetoCompletoContext : DbContext
     {
-        public ProjetoCompletoContext() //: base("")
+        public ProjetoCompletoContext() : base("DefaultConnection")
         {
 
         }
