@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DomainValidation.Validation;
+using System;
 
 namespace AS.ProjetoCompleto.Dominio.Models
 {
@@ -16,6 +13,13 @@ namespace AS.ProjetoCompleto.Dominio.Models
         }
 
         public Guid Id { get; set; }
+
+        public ValidationResult validationResult { get; set; }
+
+        public void AdicionarErroValidacao(string erro)
+        {
+            validationResult.Add(new ValidationError(erro));
+        }
 
         public abstract bool EhValido();
     }

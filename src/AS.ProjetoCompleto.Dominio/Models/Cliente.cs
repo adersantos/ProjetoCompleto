@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AS.ProjetoCompleto.Dominio.Validations.Clientes;
+using System;
 using System.Collections.Generic;
 
 namespace AS.ProjetoCompleto.Dominio.Models
@@ -51,7 +52,8 @@ namespace AS.ProjetoCompleto.Dominio.Models
 
         public override bool EhValido()
         {
-            return true;
+            validationResult = new ClienteConsistenciaValidation().Validate(this);
+            return validationResult.IsValid;
         }
     }
 }

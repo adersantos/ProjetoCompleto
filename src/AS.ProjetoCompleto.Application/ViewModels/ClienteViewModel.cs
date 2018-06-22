@@ -45,6 +45,11 @@ namespace AS.ProjetoCompleto.Application.ViewModels
         [ScaffoldColumn(false)]
         public bool Excluido { get; set; }
 
+
+        [ScaffoldColumn(false)]
+        public DomainValidation.Validation.ValidationResult validationResult { get; set; }
+
+
         public IEnumerable<EnderecoViewModel> Enderecos { get; set; }
     }
 }
